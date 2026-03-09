@@ -1,0 +1,114 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/client"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum SocialAccountStatus {
+  ACTIVE
+  REFRESH_FAILED
+  REVOKED
+  SUSPENDED
+}
+
+enum CampaignStatus {
+  QUEUED
+  RENDERING
+  IPFS_PINNED
+  POSTING
+  LIVE
+  FAILED
+}
+
+model Workspace {
+  id        String          @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name      String
+  createdAt DateTime        @default(now())
+
+  socialAccounts SocialAccount[]
+  campaigns      Campaign[]
+}
+
+model SocialAccount {
+  id               String              @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  workspaceId      String              @db.Uuid
+  workspace        Workspace           @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+
+  provider         String
+  providerId       String?
+  shopId           String              @unique
+  username         String?
+
+  accessToken      String              @db.Text
+  refreshToken     String              @db.Text
+  tokenExpiresAt   DateTime
+  refreshExpiresAt DateTime?
+
+  status           SocialAccountStatus @default(ACTIVE)
+  failureCount     Int                 @default(0)
+  lastFailureAt    DateTime?
+  lastRefreshedAt  DateTime?
+  createdAt        DateTime            @default(now())
+  updatedAt        DateTime            @updatedAt
+
+  campaigns        Campaign[]
+  webhookEvents    WebhookEventInbox[]
+
+  @@unique([provider, providerId])
+  @@index([workspaceId, status])
+  @@index([tokenExpiresAt, status])
+  @@index([shopId, status])
+}
+
+model Campaign {
+  id             String         @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  workspaceId    String         @db.Uuid
+  workspace      Workspace      @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+
+  socialAccountId String        @db.Uuid
+  socialAccount   SocialAccount @relation(fields: [socialAccountId], references: [id], onDelete: Cascade)
+
+  productId      String
+
+  ipfsCid        String?
+  ipfsGatewayUrl String?        @db.Text
+
+  providerJobId  String?
+  status         CampaignStatus @default(QUEUED)
+  lastError      String?        @db.Text
+  publicUrl      String?        @db.Text
+
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  @@index([workspaceId, status])
+  @@index([socialAccountId, status])
+  @@index([providerJobId])
+}
+
+enum InboxStatus {
+  PENDING
+  PROCESSING
+  DONE
+  DEAD
+}
+
+model WebhookEventInbox {
+  id              String         @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  socialAccountId String         @db.Uuid
+  socialAccount   SocialAccount  @relation(fields: [socialAccountId], references: [id], onDelete: Cascade)
+  externalEventId String         @unique
+  eventType       String
+  rawPayload      Json
+  receivedAt      DateTime       @default(now())
+  processedAt     DateTime?
+  status          InboxStatus    @default(PENDING)
+  retryCount      Int            @default(0)
+  lastError       String?        @db.Text
+
+  @@index([status, receivedAt])
+  @@index([socialAccountId, status])
+}
