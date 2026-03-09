@@ -4,5 +4,11 @@ dist
 .env.*
 !.env.example
 .railway
-packages/*/generated
+*.log
+.DS_Store
+
+# Prisma
+packages/db/generated
+
+# Workspace specific node_modules
 packages/*/node_modules
