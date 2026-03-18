@@ -42,6 +42,33 @@ O monorepo utiliza **Prisma v7** com geração de cliente local para evitar conf
 
 ## 📂 Estrutura de Desenvolvimento
 
+## 🛠 Início Rápido
+
+Para começar rapidamente com o ambiente técnico e comandos do sistema:
+
+```bash
+make setup      # Prepara todo o ambiente (recomendado)
+make build      # Constrói todos os pacotes
+make check      # Verifica erros de código
+```
+
+## 📂 Estrutura do Repositório
+
+```text
+neoflowoff-tiktok/
+├── packages/
+│   ├── api/            Backend (Fastify)
+│   ├── worker/         Processador de Tarefas (BullMQ)
+│   ├── db/             Camada de Dados (Prisma v7)
+│   ├── intelligence/   Motor Neural de IA
+│   └── dashboard/      Frontend (Vite/Vue)
+├── tiktok-sdk/         Integração API TikTok
+├── members/            Configurações de Sellers
+└── docs/               Documentação da Plataforma
+```
+
+────────────────────────────────────────
+
 Para rodar os módulos individualmente durante o desenvolvimento:
 
 | Comando | Descrição |
@@ -50,6 +77,7 @@ Para rodar os módulos individualmente durante o desenvolvimento:
 | `make dev-worker` | Inicia o processador de filas BullMQ. |
 | `make dev-dashboard` | Inicia o Dashboard (Vite/React). |
 | `make dev-intelligence` | Inicia o motor de IA em modo de compilação. |
+
 
 ---
 
