@@ -27,25 +27,27 @@ ao arsenal projetado para dominar o nicho de TikTok Shop:
 ┃ CAPACIDADES DA PLATAFORMA
 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ┃
-┃ 🤖 Inteligência Neural
-┃    └─ Conteúdo otimizado GPT-4 Turbo
+┃ 🤖 Inteligência Artificial
+┃    └─  GPT-4 Turbo
 ┃       via @neomello/intelligence
 ┃
-┃ ⚙️ Automação de Fluxo (Flow)
-┃    └─ Sincronização via Webhook
-┃       e fila de postagem automática
+┃ ⚙️ Automação de Flow
+┃    └─ Sincronização com API TikTok
+┃       compartilhando resultados do Hub
 ┃
-┃ 📊 Dashboard Multi-Store
+┃ 📊 Dashboard do time Multi-Store
 ┃    └─ Gestão centralizada para
 ┃       múltiplas contas de sellers
 ┃
-┃ 🛡️ Self-Healing SDK
-┃    └─ Atualização automática de tokens
-┃       via @neomello/tiktok-sdk
+┃ 🛡️ Servidor 24/7
+┃    └─ Atualização automática de novidades
+┃       dicas, e novidades direto da fonte
 ┃
 ┃ 🏗️ Infraestrutura Escalável
-┃    └─ BullMQ + Redis para alto
-┃       volume de processamento
+┃    └─ NEØ FlowOFF conta e garante que
+┃       se houver uma disparada no volume
+|        de usuarios e dados,
+|.       nada vai se perder
 ┃
 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
@@ -101,12 +103,12 @@ ao arsenal projetado para dominar o nicho de TikTok Shop:
 
 
 
-> ⚙️ **Instruções Técnicas Avançadas:**  
+> ⚙️ **Instruções Técnicas:**  
 > Consulte o guia detalhado → **[SETUP.md](./SETUP.md)**
 
 ────────────────────────────────────────
 
-## 🗺️ Roadmap: O Futuro dos Nossos Membros
+## Roadmap: Implementações em andamento
 
 ```text
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -121,10 +123,14 @@ ao arsenal projetado para dominar o nicho de TikTok Shop:
 ```
 ────────────────────────────────────────
 
-## ⚖️ Autoria & Jurídico
+## ⚖️ Autoria & Licença
 
-- **Arquitetura & Liderança:**
-  NΞØ MELLØ
+
+▓▓▓ NΞØ MELLØ
+────────────────────────────────────────
+Arquitetura · NΞØ Protocol
+neo@neoprotocol.space
+
 - **Proteção de IP:**
   Toda a arquitetura e código originais
   são Propriedade Intelectual do NΞØ Protocol.
@@ -135,15 +141,6 @@ ao arsenal projetado para dominar o nicho de TikTok Shop:
 
 ────────────────++++++++
 
-```text
-▓▓▓ NΞØ MELLØ
-────────────────────────────────────────
-Arquiteto Core · NΞØ Protocol
-neo@neoprotocol.space
-
-"Code is law. Expand until
-silence becomes structure."
-────────────────────────────────────────
 ```
 ```text
       ▄░                        
@@ -155,3 +152,4 @@ silence becomes structure."
   
 NΞØ PROTOCOL
 ```
+"Code is law. Expand until silence becomes structure."
