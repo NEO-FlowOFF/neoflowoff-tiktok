@@ -196,18 +196,48 @@ async function gracefulShutdown(signal: string) {
   process.exit(0);
 }
 
+async function connectToDatabase() {
+  app.log.info(
+    { timeoutMs: config.DB_CONNECT_TIMEOUT_MS },
+    "Attempting to connect to the database...",
+  );
+
+  let timeoutId: ReturnType<typeof setTimeout> | undefined;
+  let connectionError: unknown;
+
+  try {
+    await Promise.race([
+      prisma.$connect(),
+      new Promise<never>((_, reject) => {
+        timeoutId = setTimeout(() => {
+          reject(
+            new Error(
+              `Database connection timed out after ${config.DB_CONNECT_TIMEOUT_MS}ms`,
+            ),
+          );
+        }, config.DB_CONNECT_TIMEOUT_MS);
+      }),
+    ]);
+
+    app.log.info("Database connection successful");
+  } catch (error) {
+    connectionError = error;
+  } finally {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+  }
+
+  if (connectionError) {
+    app.log.error({ err: connectionError }, "Failed to connect to database");
+    process.exit(1);
+  }
+}
+
 process.on("SIGTERM", () => gracefulShutdown("SIGTERM"));
 process.on("SIGINT", () => gracefulShutdown("SIGINT"));
 
-// Initialize database connection
-try {
-  app.log.info("Attempting to connect to the database...");
-  await prisma.$queryRaw`SELECT 1`;
-  app.log.info("Database connection successful");
-} catch (error) {
-  app.log.error("Failed to connect to database:", error);
-  process.exit(1);
-}
+await connectToDatabase();
 
 await app.listen({
   host: "0.0.0.0",

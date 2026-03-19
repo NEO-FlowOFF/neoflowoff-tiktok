@@ -2,6 +2,7 @@ import { z } from "zod";
 
 const configSchema = z.object({
   PORT: z.coerce.number().int().positive().default(3000),
+  DB_CONNECT_TIMEOUT_MS: z.coerce.number().int().positive().default(10000),
   API_BASE_URL: z.string().url(),
   TIKTOK_SHOP_APP_KEY: z.string().min(1),
   TIKTOK_SHOP_APP_SECRET: z.string().min(1),
