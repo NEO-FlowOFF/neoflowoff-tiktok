@@ -203,6 +203,7 @@ async function connectToDatabase() {
   );
 
   let timeoutId: ReturnType<typeof setTimeout> | undefined;
+  let connectionError: unknown;
 
   try {
     await Promise.race([
@@ -220,12 +221,16 @@ async function connectToDatabase() {
 
     app.log.info("Database connection successful");
   } catch (error) {
-    app.log.error({ err: error }, "Failed to connect to database");
-    process.exit(1);
+    connectionError = error;
   } finally {
     if (timeoutId) {
       clearTimeout(timeoutId);
     }
+  }
+
+  if (connectionError) {
+    app.log.error({ err: connectionError }, "Failed to connect to database");
+    process.exit(1);
   }
 }
 
