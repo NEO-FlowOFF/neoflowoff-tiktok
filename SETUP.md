@@ -87,6 +87,8 @@ Para rodar os módulos individualmente durante o desenvolvimento:
 
 Crie um arquivo `.env` na raiz do projeto seguindo o modelo `.env.example`.
 
+O `dashboard` usa Vite com `envDir` apontando para a raiz do monorepo, então `VITE_API_BASE_URL` também deve ser definido nesse mesmo `.env` raiz para desenvolvimento local e builds consistentes.
+
 Principais variáveis:
 
 - `DATABASE_URL`: Conexão PostgreSQL.
@@ -95,6 +97,7 @@ Principais variáveis:
 - `OPENAI_API_KEY`: Necessária para o `@neomello/intelligence`.
 - `TIKTOK_SHOP_APP_KEY` e `TIKTOK_SHOP_APP_SECRET`: Integração com a API de parceiros do TikTok Shop.
 - `TIKTOK_WEBHOOK_SECRET`, `TIKTOK_WEBHOOK_SIGNATURE_HEADER` e `TIKTOK_WEBHOOK_TIMESTAMP_HEADER`: Validação dos webhooks recebidos.
+- `VITE_API_BASE_URL`: Base URL consumida pelo dashboard para consultar a API. Em dev local, use `http://localhost:3000`.
 
 ---
 

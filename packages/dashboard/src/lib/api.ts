@@ -1,7 +1,12 @@
-const defaultApiBaseUrl = 'https://neo-tiktok-api.up.railway.app'
+const configuredApiBaseUrl = import.meta.env.VITE_API_BASE_URL?.trim()
 
-export const apiBaseUrl =
-  import.meta.env.VITE_API_BASE_URL?.replace(/\/$/, '') || defaultApiBaseUrl
+if (import.meta.env.PROD && !configuredApiBaseUrl) {
+  throw new Error('VITE_API_BASE_URL is required for production dashboard builds')
+}
+
+const defaultApiBaseUrl = 'http://localhost:3000'
+
+export const apiBaseUrl = (configuredApiBaseUrl || defaultApiBaseUrl).replace(/\/$/, '')
 
 export async function fetchApiHealth(signal?: AbortSignal) {
   const response = await fetch(`${apiBaseUrl}/health`, {
