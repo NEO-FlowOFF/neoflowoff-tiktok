@@ -44,6 +44,33 @@ O monorepo utiliza **Prisma v6.19.2** com geração de cliente local para evitar
 
 ## 📂 Estrutura de Desenvolvimento
 
+## 🛠 Início Rápido
+
+Para começar rapidamente com o ambiente técnico e comandos do sistema:
+
+```bash
+make setup      # Prepara todo o ambiente (recomendado)
+make build      # Constrói todos os pacotes
+make check      # Verifica erros de código
+```
+
+## 📂 Estrutura do Repositório
+
+```text
+neoflowoff-tiktok/
+├── packages/
+│   ├── api/            Backend (Fastify)
+│   ├── worker/         Processador de Tarefas (BullMQ)
+│   ├── db/             Camada de Dados (Prisma v7)
+│   ├── intelligence/   Motor Neural de IA
+│   └── dashboard/      Frontend (Vite/Vue)
+├── tiktok-sdk/         Integração API TikTok
+├── members/            Configurações de Sellers
+└── docs/               Documentação da Plataforma
+```
+
+────────────────────────────────────────
+
 Para rodar os módulos individualmente durante o desenvolvimento:
 
 | Comando                 | Descrição                                   |
@@ -52,6 +79,7 @@ Para rodar os módulos individualmente durante o desenvolvimento:
 | `make dev-worker`       | Inicia o processador de filas BullMQ.       |
 | `make dev-dashboard`    | Inicia o Dashboard (Vite/React).            |
 | `make dev-intelligence` | Inicia o motor de IA em modo de compilação. |
+
 
 ---
 
@@ -80,6 +108,32 @@ make clean      # Remove todos os node_modules e artefatos de build
 ```
 
 ---
-
+```text
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+┃ CAPACIDADES DA PLATAFORMA
+┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+┃
+┃ 🤖 Inteligência Neural
+┃    └─ Conteúdo otimizado GPT-4 Turbo
+┃       via @neomello/intelligence
+┃
+┃ ⚙️ Automação de Fluxo (Flow)
+┃    └─ Sincronização via Webhook
+┃       e fila de postagem automática
+┃
+┃ 📊 Dashboard Multi-Store
+┃    └─ Gestão centralizada para
+┃       múltiplas contas de sellers
+┃
+┃ 🛡️ Self-Healing SDK
+┃    └─ Atualização automática de tokens
+┃       via @neomello/tiktok-sdk
+┃
+┃ 🏗️ Infraestrutura Escalável
+┃    └─ BullMQ + Redis para alto
+┃       volume de processamento
+┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
 > [!NOTE]
 > Para detalhes sobre a visão estratégica e roadmap, consulte o [README.md](./README.md).

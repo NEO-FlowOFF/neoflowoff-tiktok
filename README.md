@@ -1,4 +1,5 @@
 <!-- markdownlint-disable MD003 MD007 MD013 MD022 MD023 MD025 MD029 MD032 MD033 MD034 -->
+[<img src="https://img.shields.io/badge/TikTok-ACESSAR_|_CLIQUE_AQUI-FFOFOF?style=for-the-badge&logo=tiktok&logoColor=white&labelColor=FF0050" />](https://www.tiktok.com/t/ZS9d9c7VthG56-A80eX/) 
 
 ```text
 ========================================
@@ -11,92 +12,103 @@ impulsionado pelo Neural Core do NΞØ Protocol.
 
 > **Versão:** v1.0.0-flowoff  
 > **Licença:** MIT  
-> **Ambiente:** Monorepo PNPM
+> **Ambiente:** Monorepo pnpm
 
-────────────────────────────────────────
-
-## 🎯 O que é o NEO FlowOFF?
+──────────────────────────++++++
+## NEØ TIKTOK SHOP
 
 O ecossistema definitivo para **TikTok Sellers** que buscam escala,
 consistência e alta conversão via inteligência neural automatizada.
+Ao ingressar no ecossistema, você recebe acesso 
+ao arsenal projetado para dominar o nicho de TikTok Shop:
 
 ```text
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ┃ CAPACIDADES DA PLATAFORMA
 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ┃
-┃ 🤖 Inteligência Neural
-┃    └─ Conteúdo otimizado GPT-4 Turbo
+┃ 🤖 Inteligência Artificial
+┃    └─  GPT-4 Turbo
 ┃       via @neomello/intelligence
 ┃
-┃ ⚙️ Automação de Fluxo (Flow)
-┃    └─ Sincronização via Webhook
-┃       e fila de postagem automática
+┃ ⚙️ Automação de Flow
+┃    └─ Sincronização com API TikTok
+┃       compartilhando resultados do Hub
 ┃
-┃ 📊 Dashboard Multi-Store
-┃    └─ Gestão centralizada em
-┃       React/Vite para múltiplas lojas
+┃ 📊 Dashboard do time Multi-Store
+┃    └─ Gestão centralizada para
+┃       múltiplas contas de sellers
 ┃
-┃ 🛡️ Self-Healing SDK
-┃    └─ Atualização automática de tokens
-┃       via @neomello/tiktok-sdk
+┃ 🛡️ Servidor 24/7
+┃    └─ Atualização automática de novidades
+┃       dicas, e novidades direto da fonte
 ┃
 ┃ 🏗️ Infraestrutura Escalável
-┃    └─ BullMQ + Redis para alto
-┃       volume de processamento
+┃    └─ NEØ FlowOFF conta e garante que
+┃       se houver uma disparada no volume
+|        de usuarios e dados,
+|.       nada vai se perder
 ┃
 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
 ────────────────────────────────────────
 
-## 💎 Vantagens Exclusivas para Membros NΞØ
+```
+### VANTAGENS EXCLUSIVAS PARA MEMBROS 
 
-Ao ingressar no ecossistema **NΞØ FlowOFF**, você recebe acesso
-ao arsenal projetado para dominar o nicho de TikTok Shop:
+······································································
+** ENTRADA E ESTRUTURA **
+······································································
+  • Entrada direta no TikTok Shop sem fricção técnica
+  • Estrutura pronta de captação e conversão
+  • Redução do tempo entre cadastro e primeira venda
+  • Organização dos produtos com lógica de venda
+    (não catálogo morto)
 
-- **🌐 Vitrine High-Convert (Landing Page):**
-  Uma landing page exclusiva para centralizar seus produtos e links de venda com design premium.
-- **📊 Estudo & Análise Neural:** Mapeamento profundo do seu público alvo para identificar as conexões de maior conversão.
-- **📅 Planejamento de 30 Dias:**
-  Blueprint detalhado de presença digital para o seu primeiro mês, maximizando sua autoridade e resultados.
-- **🤖 Automação Core:** Inteligência Artificial para redação de legendas e gestão inteligente de inventário.
+······································································
+**  CONVERSÃO E TRÁFEGO **
+······································································
+  • Aumento da taxa de conversão com páginas
+    orientadas a compra
+  • Direcionamento de tráfego já alinhado com intenção de compra
+  • Clareza sobre quais produtos escalar e quais descartar
 
+······································································
+**  CONTEÚDO E AUTOMAÇÃO **
+······································································
+  • Produção de conteúdo orientada a venda
+    (não engajamento vazio)
+  • Consistência de postagem sem depender de esforço manual
+  • Redução de tempo operacional com automações aplicadas
+
+······································································
+**  ANÁLISE E OTIMIZAÇÃO  **
+······································································
+  • Visão clara do desempenho (o que vende, quando e por quê)
+  • Ajustes rápidos baseados em dados, não achismo
+  • Evolução contínua do setup conforme comportamento do público
+
+······································································
+** ESCALA E EXPANSÃO **
+······································································
+  • Base estruturada para escalar (ads, afiliados, creators)
+  • Preparação para operar múltiplos canais além do TikTok
+  • Independência progressiva de plataformas isoladas
+
+······································································
+### ACESSE AGORA E COMECE A VENDER! 
+```
 ────────────────────────────────────────
 
-## 🛠 Início Rápido
 
-Para começar rapidamente com o ambiente técnico e comandos do sistema:
 
-```bash
-make setup      # Prepara todo o ambiente (recomendado)
-make build      # Constrói todos os pacotes
-make check      # Verifica erros de código
-```
-
-> ⚙️ **Instruções Técnicas Avançadas:**  
+> ⚙️ **Instruções Técnicas:**  
 > Consulte o guia detalhado → **[SETUP.md](./SETUP.md)**
 
 ────────────────────────────────────────
 
-## 📂 Estrutura do Repositório
-
-```text
-neoflowoff-tiktok/
-├── packages/
-│   ├── api/            Backend (Fastify)
-│   ├── worker/         Processador de Tarefas (BullMQ)
-│   ├── db/             Camada de Dados (Prisma v6)
-│   ├── intelligence/   Motor Neural de IA
-│   └── dashboard/      Frontend (Vite/React)
-├── tiktok-sdk/         Integração API TikTok
-├── members/            Configurações de Sellers
-└── docs/               Documentação da Plataforma
-```
-
-────────────────────────────────────────
-
-## 🗺️ Roadmap: O Futuro dos Nossos Membros
+## Roadmap: Implementações em andamento
 
 ```text
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -108,50 +120,36 @@ neoflowoff-tiktok/
 ┃ 4. Tendências   [Q2 2026]  Análise de Mercado
 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
-
-## 🔐 Variáveis Operacionais
-
-As variáveis mínimas do backend vivem no arquivo `.env.example`.
-
-- `DATABASE_URL`: conexão principal com PostgreSQL.
-- `DB_CONNECT_TIMEOUT_MS`: timeout de bootstrap da API para falhar rápido se o banco não responder.
-- `API_BASE_URL`: URL pública usada pelo callback OAuth.
-- `TIKTOK_SHOP_APP_KEY` e `TIKTOK_SHOP_APP_SECRET`: credenciais da integração TikTok Shop.
-- `TIKTOK_WEBHOOK_SECRET`, `TIKTOK_WEBHOOK_SIGNATURE_HEADER` e `TIKTOK_WEBHOOK_TIMESTAMP_HEADER`: validação de assinatura dos webhooks.
-
+```
 ────────────────────────────────────────
 
-## ⚖️ Autoria & Jurídico
+## ⚖️ Autoria & Licença
 
-- **Arquitetura & Liderança:**
-  NΞØ MELLØ
+
+▓▓▓ NΞØ MELLØ
+────────────────────────────────────────
+Arquitetura · NΞØ Protocol
+neo@neoprotocol.space
+
 - **Proteção de IP:**
   Toda a arquitetura e código originais
   são Propriedade Intelectual do NΞØ Protocol.
 
 ────────────────────────────────────────
-🔗 **Setup Favoritos:**
-[Gerenciar Webhooks TikTok](https://partner.tiktokshop.com/webhook?app_key=6jaom6jf6th41&prev_module=webhook_log)
-────────────────────────────────────────
-
-```text
-▓▓▓ NΞØ MELLØ
-────────────────────────────────────────
-Arquiteto Core · NΞØ Protocol
-neo@neoprotocol.space
-
-"Code is law. Expand until
-silence becomes structure."
-────────────────────────────────────────
 ```
 
+
+────────────────++++++++
+
+```
 ```text
-      ▄                                                                                  █
-  ▄██▄
- █  █ █░
- █ █░ █
-  ▀██▀
+      ▄░                        
+  ▄██▄                         
+ █  █ █░    
+ █ █░ █  
+  ▀██▀  
   ▀░
 
 NΞØ PROTOCOL
 ```
+"Code is law. Expand until silence becomes structure."
