@@ -34,8 +34,8 @@ consistência e alta conversão via inteligência neural automatizada.
 ┃       e fila de postagem automática
 ┃
 ┃ 📊 Dashboard Multi-Store
-┃    └─ Gestão centralizada para
-┃       múltiplas contas de sellers
+┃    └─ Gestão centralizada em
+┃       React/Vite para múltiplas lojas
 ┃
 ┃ 🛡️ Self-Healing SDK
 ┃    └─ Atualização automática de tokens
@@ -52,15 +52,15 @@ consistência e alta conversão via inteligência neural automatizada.
 
 ## 💎 Vantagens Exclusivas para Membros NΞØ
 
-Ao ingressar no ecossistema **NΞØ FlowOFF**, você recebe acesso 
+Ao ingressar no ecossistema **NΞØ FlowOFF**, você recebe acesso
 ao arsenal projetado para dominar o nicho de TikTok Shop:
 
-*   **🌐 Vitrine High-Convert (Landing Page):** 
-Uma landing page exclusiva para centralizar seus produtos e links de venda com design premium.
-*   **📊 Estudo & Análise Neural:** Mapeamento profundo do seu público alvo para identificar as conexões de maior conversão.
-*   **📅 Planejamento de 30 Dias:** 
-Blueprint detalhado de presença digital para o seu primeiro mês, maximizando sua autoridade e resultados.
-*   **🤖 Automação Core:** Inteligência Artificial para redação de legendas e gestão inteligente de inventário.
+- **🌐 Vitrine High-Convert (Landing Page):**
+  Uma landing page exclusiva para centralizar seus produtos e links de venda com design premium.
+- **📊 Estudo & Análise Neural:** Mapeamento profundo do seu público alvo para identificar as conexões de maior conversão.
+- **📅 Planejamento de 30 Dias:**
+  Blueprint detalhado de presença digital para o seu primeiro mês, maximizando sua autoridade e resultados.
+- **🤖 Automação Core:** Inteligência Artificial para redação de legendas e gestão inteligente de inventário.
 
 ────────────────────────────────────────
 
@@ -86,9 +86,9 @@ neoflowoff-tiktok/
 ├── packages/
 │   ├── api/            Backend (Fastify)
 │   ├── worker/         Processador de Tarefas (BullMQ)
-│   ├── db/             Camada de Dados (Prisma v7)
+│   ├── db/             Camada de Dados (Prisma v6)
 │   ├── intelligence/   Motor Neural de IA
-│   └── dashboard/      Frontend (Vite/Vue)
+│   └── dashboard/      Frontend (Vite/React)
 ├── tiktok-sdk/         Integração API TikTok
 ├── members/            Configurações de Sellers
 └── docs/               Documentação da Plataforma
@@ -102,12 +102,22 @@ neoflowoff-tiktok/
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ┃ FASE          STATUS      OBJETIVO
 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-┃ 1. Estabilidade [OK]      PNPM + Prisma v7
+┃ 1. Estabilidade [OK]      PNPM + Prisma v6
 ┃ 2. IA Core      [ATIVO]   Legendas Neurais
 ┃ 3. Automação    [PENDENTE] Fluxo Auto-Post
 ┃ 4. Tendências   [Q2 2026]  Análise de Mercado
 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
+
+## 🔐 Variáveis Operacionais
+
+As variáveis mínimas do backend vivem no arquivo `.env.example`.
+
+- `DATABASE_URL`: conexão principal com PostgreSQL.
+- `DB_CONNECT_TIMEOUT_MS`: timeout de bootstrap da API para falhar rápido se o banco não responder.
+- `API_BASE_URL`: URL pública usada pelo callback OAuth.
+- `TIKTOK_SHOP_APP_KEY` e `TIKTOK_SHOP_APP_SECRET`: credenciais da integração TikTok Shop.
+- `TIKTOK_WEBHOOK_SECRET`, `TIKTOK_WEBHOOK_SIGNATURE_HEADER` e `TIKTOK_WEBHOOK_TIMESTAMP_HEADER`: validação de assinatura dos webhooks.
 
 ────────────────────────────────────────
 
@@ -123,6 +133,7 @@ neoflowoff-tiktok/
 🔗 **Setup Favoritos:**
 [Gerenciar Webhooks TikTok](https://partner.tiktokshop.com/webhook?app_key=6jaom6jf6th41&prev_module=webhook_log)
 ────────────────────────────────────────
+
 ```text
 ▓▓▓ NΞØ MELLØ
 ────────────────────────────────────────
@@ -133,13 +144,14 @@ neo@neoprotocol.space
 silence becomes structure."
 ────────────────────────────────────────
 ```
+
 ```text
-      ▄                                                                                  █                        
-  ▄██▄                         
- █  █ █░    
- █ █░ █  
-  ▀██▀  
+      ▄                                                                                  █
+  ▄██▄
+ █  █ █░
+ █ █░ █
+  ▀██▀
   ▀░
-  
+
 NΞØ PROTOCOL
 ```
