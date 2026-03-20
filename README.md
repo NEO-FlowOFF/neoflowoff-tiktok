@@ -138,6 +138,8 @@ O `dashboard` lê `VITE_API_BASE_URL` a partir da raiz do monorepo via `envDir` 
 
 ## ⚖️ Autoria & Licença
 
+```
+
 ▓▓▓ NΞØ MELLØ
 ────────────────────────────────────────
 Arquitetura · NΞØ Protocol
@@ -146,17 +148,11 @@ neo@neoprotocol.space
 - **Proteção de IP:**
   Toda a arquitetura e código originais
   são Propriedade Intelectual do NΞØ Protocol.
-
-────────────────────────────────────────
-
-```
-
-
 ────────────────++++++++
 
 ```
 
-```text
+```
       ▄░
   ▄██▄
  █  █ █░
