@@ -1,16 +1,29 @@
 :root {
-  --bg: #0f1118;
-  --bg-soft: #161922;
-  --panel: rgba(255, 255, 255, 0.06);
-  --panel-strong: rgba(255, 255, 255, 0.1);
-  --text: #f7f4ec;
-  --muted: #b8b2a7;
-  --line: rgba(255, 255, 255, 0.12);
-  --accent: #7cf7b6;
-  --accent-deep: #2ac58d;
-  --signal: #ff845c;
+  --bg: #030104;
+  --bg-soft: #0b0a10;
+  --panel: rgba(255, 255, 255, 0.03);
+  --panel-strong: rgba(255, 255, 255, 0.06);
+  --text: #f3f4f6;
+  --muted: #9ca3af;
+  --line: rgba(255, 255, 255, 0.08);
+  --accent: #14b8a6;
+  --accent-deep: #0d9488;
+  --signal: #f90b8a;
   --warning: #ffd166;
-  --shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.46);
+}
+.hero-copy .destaque {
+  color: #ddfd51;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.segunda-parte {
+  color: #666; /* Cinza mais suave */
+  font-weight: 300; /* Mais leve */
+  font-size: 0.9em; /* Um pouco menor */
+  display: block; /* Força quebra de linha */
+  margin-top: 0.5rem;
 }
 
 * {
@@ -26,9 +39,10 @@ body {
   min-width: 320px;
   color: var(--text);
   background:
-    radial-gradient(circle at top left, rgba(124, 247, 182, 0.16), transparent 28%),
-    radial-gradient(circle at 85% 12%, rgba(255, 132, 92, 0.16), transparent 24%),
-    linear-gradient(180deg, #12141c 0%, #0b0d13 100%);
+    radial-gradient(circle at top left, rgba(20, 184, 166, 0.16), transparent 28%),
+    radial-gradient(circle at 85% 12%, rgba(236, 72, 153, 0.14), transparent 24%),
+    radial-gradient(circle at 50% 100%, rgba(4, 47, 46, 0.4), transparent 40%),
+    linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 100%);
   font-family: "Sora", system-ui, sans-serif;
 }
 
@@ -51,8 +65,8 @@ main {
   top: 0;
   z-index: 20;
   backdrop-filter: blur(20px);
-  background: rgba(10, 12, 18, 0.68);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(3, 1, 4, 0.78);
+  border-bottom: 1px solid var(--line);
 }
 
 .topbar-inner {
@@ -81,7 +95,7 @@ main {
   border-radius: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background:
-    linear-gradient(135deg, rgba(124, 247, 182, 0.2), rgba(124, 247, 182, 0)),
+    linear-gradient(135deg, rgba(20, 184, 166, 0.24), rgba(236, 72, 153, 0.12)),
     rgba(255, 255, 255, 0.03);
   box-shadow: var(--shadow);
 }
@@ -130,14 +144,14 @@ main {
 }
 
 .button-primary {
-  background: linear-gradient(135deg, var(--accent), #d6ff91);
-  color: #07110d;
-  box-shadow: 0 20px 60px rgba(124, 247, 182, 0.22);
+  background: linear-gradient(135deg, var(--accent), #2dd4bf);
+  color: #030104;
+  box-shadow: 0 20px 60px rgba(20, 184, 166, 0.22);
 }
 
 .button-secondary {
-  border-color: rgba(255, 255, 255, 0.14);
-  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
   color: var(--text);
 }
 
@@ -151,8 +165,8 @@ main {
   gap: 0.65rem;
   padding: 0.55rem 0.9rem;
   border-radius: 999px;
-  border: 1px solid rgba(124, 247, 182, 0.2);
-  background: rgba(124, 247, 182, 0.08);
+  border: 1px solid rgba(20, 184, 166, 0.24);
+  background: rgba(20, 184, 166, 0.08);
   color: var(--accent);
   font-size: 0.76rem;
   font-weight: 700;
@@ -165,7 +179,7 @@ main {
   height: 0.55rem;
   border-radius: 999px;
   background: var(--accent);
-  box-shadow: 0 0 18px rgba(124, 247, 182, 0.7);
+  box-shadow: 0 0 18px rgba(20, 184, 166, 0.7);
 }
 
 .hero-grid {
@@ -212,7 +226,7 @@ main {
 .mini-card,
 .cta-card {
   border: 1px solid var(--line);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015));
   box-shadow: var(--shadow);
   backdrop-filter: blur(18px);
 }
@@ -249,7 +263,7 @@ main {
   position: absolute;
   inset: auto -20% -25% 20%;
   height: 12rem;
-  background: radial-gradient(circle, rgba(124, 247, 182, 0.28), transparent 65%);
+  background: radial-gradient(circle, rgba(20, 184, 166, 0.3), transparent 65%);
   filter: blur(24px);
 }
 
@@ -275,7 +289,7 @@ main {
   gap: 0.45rem;
   padding: 0.45rem 0.75rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
   font-size: 0.78rem;
   color: var(--text);
@@ -450,8 +464,8 @@ main {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 15% 15%, rgba(124, 247, 182, 0.18), transparent 26%),
-    radial-gradient(circle at 85% 10%, rgba(255, 132, 92, 0.18), transparent 28%);
+    radial-gradient(circle at 15% 15%, rgba(20, 184, 166, 0.2), transparent 26%),
+    radial-gradient(circle at 85% 10%, rgba(236, 72, 153, 0.18), transparent 28%);
   pointer-events: none;
 }
 

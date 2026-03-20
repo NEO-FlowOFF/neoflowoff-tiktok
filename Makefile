@@ -1,8 +1,19 @@
 # NΞØ FlowOFF TikTok Platform - Makefile
 
-.PHONY: all install build dev clean db-generate setup fix-perms check
+.PHONY: all help install build dev clean db-generate setup fix-perms check dev-api dev-worker dev-dashboard dev-landing dev-public dev-intelligence
 
 all: setup build
+
+help:
+	@echo "Comandos principais:"
+	@echo "  make dev          # Landing publica (Astro)"
+	@echo "  make dev-landing  # Landing publica (Astro)"
+	@echo "  make dev-public   # Alias para a landing publica"
+	@echo "  make dev-dashboard# Dashboard interno (Vite/React)"
+	@echo "  make dev-api      # API local (Fastify)"
+	@echo "  make dev-worker   # Worker local"
+	@echo "  make build        # Build completo do monorepo"
+	@echo "  make check        # Type check do monorepo"
 
 # Corrige permissões caso o sudo tenha sido usado
 fix-perms:
@@ -47,6 +58,13 @@ db-generate:
 	pnpm run db:generate
 
 # Atalhos para desenvolvimento
+dev: dev-landing
+
+dev-landing:
+	pnpm --filter @neomello/landing run dev
+
+dev-public: dev-landing
+
 dev-api:
 	pnpm --filter @neomello/api run dev
 
