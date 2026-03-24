@@ -18,3 +18,7 @@ tiktok-sdk/node_modules
 .pnpm-store
 .vercel
 .env*.local
+.venv/
+runtime/
+__pycache__/
+*.py[cod]

@@ -1,6 +1,6 @@
 # NΞØ FlowOFF TikTok Platform - Makefile
 
-.PHONY: all help install build dev clean db-generate setup fix-perms check dev-api dev-worker dev-dashboard dev-landing dev-public dev-intelligence
+.PHONY: all help install build dev clean db-generate setup fix-perms check dev-api dev-worker dev-dashboard dev-landing dev-public dev-intelligence minio-up minio-down minio-bucket minio-ls content-setup content-mine content-run content-auto content-research-auto content-runtime-ls content-runtime-clean content-runtime-clean-keep-example neo-setup neo-mine neo-run neo-auto neo-research-auto safe-content-push
 
 all: setup build
 
@@ -14,6 +14,21 @@ help:
 	@echo "  make dev-worker   # Worker local"
 	@echo "  make build        # Build completo do monorepo"
 	@echo "  make check        # Type check do monorepo"
+	@echo "  make minio-up     # Sobe ou inicia MinIO local"
+	@echo "  make minio-bucket # Cria bucket e publica leitura"
+	@echo "  make minio-ls     # Lista objetos do bucket"
+	@echo "  make minio-down   # Para o container MinIO"
+	@echo "  make content-setup # Prepara modulo apps/content-engine"
+	@echo "  make content-mine  # Pesquisa produtos e gera CSV"
+	@echo "  make content-run   # Renderiza e publica videos"
+	@echo "  make content-auto  # MinIO + render/publicacao"
+	@echo "  make content-research-auto # Pesquisa + render/publicacao"
+	@echo "  make content-runtime-ls # Lista arquivos do runtime"
+	@echo "  make content-runtime-clean # Limpa runtime completo"
+	@echo "  make content-runtime-clean-keep-example # Limpa runtime e preserva TX_TEST_IMG"
+	@echo "  make safe-content-push MSG='mensagem' # Commit local com gate de seguranca (sem push)"
+	@echo "  PUSH=1 make safe-content-push MSG='mensagem' # Push remoto explicito"
+	@echo "  make neo-*         # Alias legado para content-*"
 
 # Corrige permissões caso o sudo tenha sido usado
 fix-perms:
@@ -76,3 +91,53 @@ dev-dashboard:
 
 dev-intelligence:
 	pnpm --filter @neomello/intelligence run dev
+
+minio-up:
+	pnpm run minio:up
+
+minio-bucket:
+	pnpm run minio:bucket
+
+minio-ls:
+	pnpm run minio:ls
+
+minio-down:
+	pnpm run minio:down
+
+content-setup:
+	pnpm run content:setup
+
+content-mine:
+	pnpm run content:mine
+
+content-run:
+	pnpm run content:run
+
+content-auto:
+	pnpm run content:auto
+
+content-research-auto:
+	pnpm run content:research-auto
+
+content-runtime-ls:
+	@find apps/content-engine/runtime -type f | sort
+
+content-runtime-clean:
+	python3 tools/clean_content_runtime.py --runtime-dir apps/content-engine/runtime
+
+content-runtime-clean-keep-example:
+	python3 tools/clean_content_runtime.py --runtime-dir apps/content-engine/runtime --keep-example
+
+neo-setup: content-setup
+
+neo-mine: content-mine
+
+neo-run: content-run
+
+neo-auto: content-auto
+
+neo-research-auto: content-research-auto
+
+safe-content-push:
+	@test -n "$(MSG)" || (echo "Use: make safe-content-push MSG='mensagem do commit'" && exit 1)
+	./tools/safe_content_push.sh "$(MSG)"
