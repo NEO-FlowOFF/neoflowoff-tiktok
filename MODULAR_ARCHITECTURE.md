@@ -140,19 +140,21 @@ Nao sao a arquitetura final.
 
 ### Concluido
 
+- `neo-content-landing` extraido para repo proprio local
+- `neo-content-dashboard` extraido para repo proprio local
+- `neo-content-accounts` extraido para repo proprio local
 - `neo-content-engine` extraido para repo proprio local
 - ponte do workspace raiz apontando para o repo irmao
 - espelho antigo em `apps/content-engine` removido do fluxo
 
 ### Proximo
 
-- extrair `neo-content-landing`
-- extrair `neo-content-dashboard`
-- extrair `neo-content-accounts`
+- aposentar espelhos transitorios que ainda vivem nesta raiz
+- apontar Railway para os repositorios soberanos corretos
 
 ## Mapa de pastas atual para corte futuro
 
-### Vai sair deste repo
+### Espelhos transitorios nesta raiz
 
 - `packages/landing`
 - `packages/dashboard`
@@ -164,6 +166,9 @@ Nao sao a arquitetura final.
 
 ### Ja saiu em pratica
 
+- `landing` para `../neo-content-landing`
+- `dashboard` para `../neo-content-dashboard`
+- `accounts` para `../neo-content-accounts`
 - `content-engine` para `../neo-content-engine`
 
 ### Fica como apoio temporario

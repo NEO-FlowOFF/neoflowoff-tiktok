@@ -12,7 +12,11 @@ No visual do workspace, este e o no de contas e operacao.
 - SDK TikTok
 - inteligencia auxiliar
 
-## Fonte atual
+## Repo soberano
+
+- `../neo-content-accounts`
+
+## Espelho transitorio nesta raiz
 
 - `packages/api`
 - `packages/db`
@@ -20,10 +24,6 @@ No visual do workspace, este e o no de contas e operacao.
 - `packages/neo-intelligence`
 - `tiktok-sdk`
 
-## Destino
-
-- repositorio proprio `neo-content-accounts`
-
 ## Navegacao
 
-Abra os atalhos internos deste diretorio para navegar pelos blocos atuais do modulo.
+Abra `repo/` para ir ao repositorio soberano.

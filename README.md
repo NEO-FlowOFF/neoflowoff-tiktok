@@ -19,9 +19,12 @@ O desenho modular alvo e este:
 
 Hoje, o estado real e:
 
+- `neo-content-landing` ja foi extraido para repo irmao em `../neo-content-landing`
+- `neo-content-dashboard` ja foi extraido para repo irmao em `../neo-content-dashboard`
+- `neo-content-accounts` ja foi extraido para repo irmao em `../neo-content-accounts`
 - `neo-content-engine` ja foi extraido para repo irmao em `../neo-content-engine`
 - o espelho antigo em `apps/content-engine` foi aposentado
-- `landing`, `dashboard` e `accounts` ainda vivem aqui, mas ja tem fronteiras definidas
+- `packages/landing`, `packages/dashboard`, `packages/api`, `packages/db`, `packages/worker`, `packages/neo-intelligence` e `tiktok-sdk` ainda existem aqui como espelhos transitorios
 - a raiz `neoflowoff-tiktok` existe para coordenar a transicao, nao para crescer indefinidamente
 
 ## Modulos e fronteiras
@@ -34,7 +37,12 @@ Responsabilidade:
 - vitrine institucional
 - superficie de entrada
 
-Origem atual neste workspace:
+Repo atual:
+
+- `../neo-content-landing`
+- remoto: [NEO-FlowOFF/neo-content-landing](https://github.com/NEO-FlowOFF/neo-content-landing)
+
+Espelho transitorio neste workspace:
 
 - `packages/landing`
 
@@ -46,7 +54,12 @@ Responsabilidade:
 - consumo da API de contas
 - visualizacao de saude, ranking e operacao
 
-Origem atual neste workspace:
+Repo atual:
+
+- `../neo-content-dashboard`
+- remoto: [NEO-FlowOFF/neo-content-dashboard](https://github.com/NEO-FlowOFF/neo-content-dashboard)
+
+Espelho transitorio neste workspace:
 
 - `packages/dashboard`
 
@@ -60,7 +73,12 @@ Responsabilidade:
 - filas e jobs
 - SDK e inteligencia auxiliar
 
-Origem atual neste workspace:
+Repo atual:
+
+- `../neo-content-accounts`
+- remoto: [NEO-FlowOFF/neo-content-accounts](https://github.com/NEO-FlowOFF/neo-content-accounts)
+
+Espelho transitorio neste workspace:
 
 - `packages/api`
 - `packages/db`
@@ -104,13 +122,16 @@ Eles nao substituem a fonte de verdade de cada dominio.
 
 ### O que continua aqui
 
-- codigo que ainda sera extraido
+- espelhos transitorios de modulos ja extraidos
 - docs de transicao
 - comandos de compatibilidade
 - referencias do Railway atual
 
 ### O que ja foi externalizado
 
+- `landing`
+- `dashboard`
+- `accounts`
 - `content-engine`
 
 Os comandos abaixo na raiz sao apenas ponte:
@@ -150,7 +171,7 @@ Relacao alvo entre Railway e repositorios:
 
 ## Estado de transicao
 
-Este repositorio ainda contem codigo de dominios que vao sair. Portanto:
+Este repositorio ainda contem espelhos de codigo que serao aposentados. Portanto:
 
 - nem todo diretorio aqui deve continuar existindo a longo prazo
 - nem todo comando aqui representa a casa final do modulo

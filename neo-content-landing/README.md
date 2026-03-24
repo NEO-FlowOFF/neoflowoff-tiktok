@@ -8,14 +8,14 @@ No visual do workspace, este e o no da landing.
 - narrativa institucional
 - captacao e entrada
 
-## Fonte atual
+## Repo soberano
+
+- `../neo-content-landing`
+
+## Espelho transitorio nesta raiz
 
 - `packages/landing`
 
-## Destino
-
-- repositorio proprio `neo-content-landing`
-
 ## Navegacao
 
-Abra `source/` para acessar a implementacao atual enquanto a extracao nao acontece.
+Abra `repo/` para ir ao repositorio soberano.

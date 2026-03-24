@@ -49,20 +49,12 @@ prevalece a arquitetura declarada.
 2. Se a tarefa for sobre `content-engine`,
    operar em `../neo-content-engine`.
 3. Se a tarefa for sobre landing publica,
-   operar no futuro `neo-content-landing`
-   e, enquanto nao existir, usar `packages/landing`.
+   operar em `../neo-content-landing`.
 4. Se a tarefa for sobre dashboard,
-   operar no futuro `neo-content-dashboard`
-   e, enquanto nao existir, usar `packages/dashboard`.
+   operar em `../neo-content-dashboard`.
 5. Se a tarefa for sobre OAuth, webhooks, DB, worker,
    SDK TikTok ou inteligencia auxiliar,
-   operar no futuro `neo-content-accounts`
-   e, enquanto nao existir, usar:
-   - `packages/api`
-   - `packages/db`
-   - `packages/worker`
-   - `packages/neo-intelligence`
-   - `tiktok-sdk`
+   operar em `../neo-content-accounts`.
 6. Nunca confundir bridge de compatibilidade
    com fonte de verdade do dominio.
 
@@ -110,10 +102,16 @@ prevalece a arquitetura declarada.
 
 ### Ja extraido
 
+- `neo-content-landing`
+  em `/Users/nettomello/CODIGOS/neo-content-landing`
+- `neo-content-dashboard`
+  em `/Users/nettomello/CODIGOS/neo-content-dashboard`
+- `neo-content-accounts`
+  em `/Users/nettomello/CODIGOS/neo-content-accounts`
 - `neo-content-engine`
   em `/Users/nettomello/CODIGOS/neo-content-engine`
 
-### Ainda nesta raiz, mas com destino definido
+### Ainda nesta raiz, mas apenas como espelho transitorio
 
 - `packages/landing` -> `neo-content-landing`
 - `packages/dashboard` -> `neo-content-dashboard`

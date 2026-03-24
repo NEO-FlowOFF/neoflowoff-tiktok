@@ -6,9 +6,9 @@ Estado vivo da modularizacao do ecossistema TikTok Shop.
 
 | Dominio | Repo alvo | Estado | Fonte de verdade atual | Railway |
 | :-- | :-- | :-- | :-- | :-- |
-| Landing | `neo-content-landing` | Planejado | `packages/landing` | `landing` |
-| Dashboard | `neo-content-dashboard` | Planejado | `packages/dashboard` | `dashboard` |
-| Accounts | `neo-content-accounts` | Planejado | `packages/api`, `packages/db`, `packages/worker`, `packages/neo-intelligence`, `tiktok-sdk` | `neo-tiktok-api` + `Postgres` + `Redis` |
+| Landing | `neo-content-landing` | Extraido | `../neo-content-landing` | `landing` |
+| Dashboard | `neo-content-dashboard` | Extraido | `../neo-content-dashboard` | `dashboard` |
+| Accounts | `neo-content-accounts` | Extraido | `../neo-content-accounts` | `neo-tiktok-api` + `Postgres` + `Redis` |
 | Engine | `neo-content-engine` | Extraido | `../neo-content-engine` | Fora do Railway |
 
 ## O que este root ainda faz
@@ -16,7 +16,7 @@ Estado vivo da modularizacao do ecossistema TikTok Shop.
 - coordena a transicao arquitetural
 - centraliza manifests e documentacao transversal
 - oferece bridges temporarias
-- ainda hospeda codigo que sera extraido
+- ainda hospeda espelhos transitorios de codigo ja extraido
 - nao hospeda mais uma copia operacional do `content-engine`
 
 ## O que este root nao deve voltar a fazer

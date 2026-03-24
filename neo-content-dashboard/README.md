@@ -8,14 +8,14 @@ No visual do workspace, este e o no do dashboard.
 - consumo da API de contas
 - visibilidade de saude e performance
 
-## Fonte atual
+## Repo soberano
+
+- `../neo-content-dashboard`
+
+## Espelho transitorio nesta raiz
 
 - `packages/dashboard`
 
-## Destino
-
-- repositorio proprio `neo-content-dashboard`
-
 ## Navegacao
 
-Abra `source/` para acessar a implementacao atual enquanto a extracao nao acontece.
+Abra `repo/` para ir ao repositorio soberano.
