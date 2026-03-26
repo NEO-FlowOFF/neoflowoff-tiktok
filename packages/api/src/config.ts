@@ -4,6 +4,10 @@ const configSchema = z.object({
   PORT: z.coerce.number().int().positive().default(3000),
   DB_CONNECT_TIMEOUT_MS: z.coerce.number().int().positive().default(10000),
   API_BASE_URL: z.string().url(),
+  TIKTOK_SHOP_API_BASE_URL: z
+    .string()
+    .url()
+    .default("https://open-api.tiktokglobalshop.com"),
   TIKTOK_SHOP_APP_KEY: z.string().min(1),
   TIKTOK_SHOP_APP_SECRET: z.string().min(1),
   TIKTOK_SHOP_AUTHORIZE_URL: z.string().url(),
@@ -15,4 +19,8 @@ const configSchema = z.object({
   TIKTOK_WEBHOOK_TIMESTAMP_HEADER: z.string().default("x-tiktok-timestamp"),
 });
 
-export const config = configSchema.parse(process.env);
+const parsed = configSchema.parse(process.env);
+
+export const config = {
+  ...parsed,
+};
