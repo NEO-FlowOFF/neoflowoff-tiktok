@@ -258,7 +258,27 @@ async def run_local_miner_node():
             for item in product_elements[:5]: # Limita aos 5 primeiros para teste
                 name = await item.locator(PRODUCT_TITLE_SELECTOR).inner_text()
                 commission_str = await item.locator(COMMISSION_AMOUNT_SELECTOR).inner_text()
-                commission = float(commission_str.replace('R$', '').replace(',', '.').strip())
+                
+                # NOVO: Limpeza robusta para lidar com ranges e sufixos (ex: 603K ~ 957K)
+                def parse_tiktok_number(val_str):
+                    # Pega o primeiro valor se for um range
+                    first_part = val_str.split('~')[0].strip()
+                    clean_val = first_part.replace('R$', '').replace('$', '').replace(',', '.').strip()
+                    
+                    multiplier = 1.0
+                    if 'K' in clean_val.upper():
+                        multiplier = 1000.0
+                        clean_val = clean_val.upper().replace('K', '')
+                    elif 'M' in clean_val.upper():
+                        multiplier = 1000000.0
+                        clean_val = clean_val.upper().replace('M', '')
+                    
+                    try:
+                        return float(clean_val) * multiplier
+                    except:
+                        return 0.0
+
+                commission = parse_tiktok_number(commission_str)
 
                 # Injeta a inteligência do Tavily
                 saturation_multiplier = get_saturation_penalty(name)
