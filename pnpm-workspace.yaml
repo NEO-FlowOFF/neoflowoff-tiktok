@@ -1,13 +1,1 @@
-packages:
-  - "packages/api"
-  - "packages/dashboard"
-  - "packages/db"
-  - "packages/landing"
-  - "packages/neo-intelligence"
-  - "packages/worker"
-  - "tiktok-sdk"
-allowBuilds:
-  "@prisma/engines": true
-  esbuild: true
-  msgpackr-extract: true
-  prisma: true
+packages: []

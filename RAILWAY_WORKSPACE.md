@@ -38,13 +38,13 @@ Papel:
 
 Dependencia:
 
-- consome a API de `neo-content-accounts`
+- consome a API de `neo-content-accounts-api`
 
 ### neo-tiktok-api
 
 Repo alvo:
 
-- `neo-content-accounts`
+- `neo-content-accounts-api`
 
 Papel:
 
@@ -61,7 +61,7 @@ Papel:
 
 Consumidor alvo:
 
-- `neo-content-accounts`
+- `neo-content-accounts-api`
 
 ### Redis
 
@@ -71,7 +71,7 @@ Papel:
 
 Consumidor alvo:
 
-- `neo-content-accounts`
+- `neo-content-accounts-api`
 
 ## O que fica fora do Railway
 
@@ -119,7 +119,7 @@ Resumo:
 
 - `VITE_API_BASE_URL`
 
-### neo-content-accounts
+### neo-content-accounts-api
 
 - `DATABASE_URL`
 - `REDIS_URL`
@@ -138,3 +138,9 @@ Se um servico Railway pode existir sozinho, ele merece ser tratado como dominio 
 
 Infraestrutura compartilhada e normal.
 Repositorio compartilhado por habito e outra conversa.
+
+## Documento de execucao
+
+Para configurar cada no no painel, use:
+
+- [RAILWAY_NODE_SETUP.md](./RAILWAY_NODE_SETUP.md)
