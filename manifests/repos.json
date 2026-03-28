@@ -48,6 +48,18 @@
       "source": "filesystem + git remote"
     },
     {
+      "id": "neo-content-worker",
+      "localPath": "../neo-content-accounts-api",
+      "remote": "https://github.com/NEO-FlowOFF/neo-content-accounts-api.git",
+      "role": "Background Worker / Queue Jobs / TikTok Sync",
+      "ownership": "product",
+      "status": "extracted",
+      "currentSourceOfTruth": "../neo-content-accounts-api",
+      "railwayStartCommand": "pnpm start:worker",
+      "note": "Same repo as neo-content-accounts-api, different Railway service with different start command",
+      "source": "filesystem + git remote"
+    },
+    {
       "id": "neo-content-engine",
       "localPath": "../neo-content-engine",
       "remote": "https://github.com/NEO-FlowOFF/neo-content-engine.git",
