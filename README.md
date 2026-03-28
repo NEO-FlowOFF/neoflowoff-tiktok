@@ -20,7 +20,7 @@ Estado atual:
 - `neo-content-landing` mantém o nome `../neo-content-landing`
 - `neo-content-dashboard` mantém o nome `../neo-content-dashboard`
 - `neo-content-accounts-api` inclusão de -api `../neo-content-accounts-api`
-- `neo-content-engine` mantem o nome `../neo-content-engine`
+- `neo-content-engine` mantém o nome `../neo-content-engine`
 - `neo-control-plane`  altera para `../neo-control-plane` 
 
 ## Fronteiras de dominio
