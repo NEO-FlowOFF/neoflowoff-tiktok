@@ -1,207 +1,128 @@
 # neoflowoff-tiktok
 
-Workspace raiz de transicao do ecossistema modular TikTok Shop da NEO FlowOFF.
+Control Plane do ecossistema modular TikTok Shop da NEO FlowOFF.
 
-Este repositorio nao deve mais ser lido como casa definitiva de toda a plataforma. Ele agora cumpre 3 papeis:
-
-- workspace local para coordenar a migracao modular
-- ponte temporaria para dominios que ja foram extraidos
-- base atual do que ainda sera separado em repositorios proprios
+Este repositorio nao e API de produto.
+Este repositorio nao e worker de produto.
+Este repositorio coordena, documenta e orquestra os modulos soberanos.
 
 ## Leitura rapida
 
-O desenho modular alvo e este:
+Arquitetura ativa:
 
 - `neo-content-landing`
 - `neo-content-dashboard`
 - `neo-content-accounts`
 - `neo-content-engine`
 
-Hoje, o estado real e:
+Estado atual:
 
-- `neo-content-landing` ja foi extraido para repo irmao em `../neo-content-landing`
-- `neo-content-dashboard` ja foi extraido para repo irmao em `../neo-content-dashboard`
-- `neo-content-accounts` ja foi extraido para repo irmao em `../neo-content-accounts`
-- `neo-content-engine` ja foi extraido para repo irmao em `../neo-content-engine`
-- o espelho antigo em `apps/content-engine` foi aposentado
-- `packages/landing`, `packages/dashboard`, `packages/api`, `packages/db`, `packages/worker`, `packages/neo-intelligence` e `tiktok-sdk` ainda existem aqui como espelhos transitorios
-- a raiz `neoflowoff-tiktok` existe para coordenar a transicao, nao para crescer indefinidamente
+- `neo-content-landing` vive em `../neo-content-landing`
+- `neo-content-dashboard` vive em `../neo-content-dashboard`
+- `neo-content-accounts` vive em `../neo-content-accounts`
+- `neo-content-engine` vive em `../neo-content-engine`
+- `neoflowoff-tiktok` e o Control Plane dessa topologia
 
-## Modulos e fronteiras
+## Fronteiras de dominio
 
-### 1. neo-content-landing
+### 1) neo-content-landing
 
 Responsabilidade:
 
 - site publico
-- vitrine institucional
 - superficie de entrada
 
-Repo atual:
+Fonte de verdade:
 
 - `../neo-content-landing`
 - remoto: [NEO-FlowOFF/neo-content-landing](https://github.com/NEO-FlowOFF/neo-content-landing)
 
-Espelho transitorio neste workspace:
-
-- `packages/landing`
-
-### 2. neo-content-dashboard
+### 2) neo-content-dashboard
 
 Responsabilidade:
 
 - painel operacional
 - consumo da API de contas
-- visualizacao de saude, ranking e operacao
 
-Repo atual:
+Fonte de verdade:
 
 - `../neo-content-dashboard`
 - remoto: [NEO-FlowOFF/neo-content-dashboard](https://github.com/NEO-FlowOFF/neo-content-dashboard)
 
-Espelho transitorio neste workspace:
-
-- `packages/dashboard`
-
-### 3. neo-content-accounts
+### 3) neo-content-accounts
 
 Responsabilidade:
 
-- OAuth TikTok Shop
-- persistencia em Postgres
+- API OAuth TikTok Shop
 - webhooks
-- filas e jobs
-- SDK e inteligencia auxiliar
+- persistencia em Postgres
+- filas e jobs (worker)
+- SDK TikTok
 
-Repo atual:
+Fonte de verdade:
 
 - `../neo-content-accounts`
 - remoto: [NEO-FlowOFF/neo-content-accounts](https://github.com/NEO-FlowOFF/neo-content-accounts)
 
-Espelho transitorio neste workspace:
-
-- `packages/api`
-- `packages/db`
-- `packages/worker`
-- `packages/neo-intelligence`
-- `tiktok-sdk`
-
-### 4. neo-content-engine
+### 4) neo-content-engine
 
 Responsabilidade:
 
 - pesquisa de oportunidades
 - geracao de roteiro, audio e video
-- upload opcional de ativos
-- pipeline local-first para TikTok Shop
+- pipeline local-first
+- uso de OpenAI para conteudo
 
-Repo atual:
+Fonte de verdade:
 
 - `../neo-content-engine`
 - remoto: [NEO-FlowOFF/neo-content-engine](https://github.com/NEO-FlowOFF/neo-content-engine)
 
-Observacao critica:
+## Como operar este repositorio
 
-- o engine roda localmente
-- GitHub serve para versionar e transportar
-- Railway nao e o destino natural desse modulo neste momento
+Este repositorio serve para:
 
-## Como este workspace funciona hoje
+- governanca tecnica
+- documentacao
+- auditoria
+- atalhos de orquestracao
 
-### Nos visuais na raiz
-
-Para leitura operacional imediata no Finder, a raiz agora expõe 4 nos:
-
-- `neo-content-engine`
-- `neo-content-landing`
-- `neo-content-dashboard`
-- `neo-content-accounts`
-
-Esses nos existem para navegacao e clareza arquitetural.
-Eles nao substituem a fonte de verdade de cada dominio.
-
-### O que continua aqui
-
-- espelhos transitorios de modulos ja extraidos
-- docs de transicao
-- comandos de compatibilidade
-- referencias do Railway atual
-
-### O que ja foi externalizado
-
-- `landing`
-- `dashboard`
-- `accounts`
-- `content-engine`
-
-Os comandos abaixo na raiz sao apenas ponte:
-
-```bash
-make content-setup
-make content-run -- --skip-upload --skip-openai
-pnpm run content:run
-```
-
-Eles delegam para:
-
-```bash
-../neo-content-engine
-```
+Este repositorio nao deve receber codigo de produto novo.
 
 ## Railway
 
-No Railway, a leitura correta e de workspace com servicos, nao de monolito disfarçado.
+Leitura correta no Railway:
 
-Servicos atuais observados:
+- Projeto stack de contas: `neo-content-accounts-stack`
+- API e Worker apontam para o repo `neo-content-accounts`
+- `Postgres` e `Redis` suportam `neo-content-accounts`
 
-- `landing`
-- `dashboard`
-- `neo-tiktok-api`
-- `Postgres`
-- `Redis`
-
-Relacao alvo entre Railway e repositorios:
+Mapeamento alvo:
 
 - `landing` -> `neo-content-landing`
 - `dashboard` -> `neo-content-dashboard`
-- `neo-tiktok-api` -> `neo-content-accounts`
-- `Postgres` -> recurso do workspace consumido por `neo-content-accounts`
-- `Redis` -> recurso do workspace consumido por `neo-content-accounts`
-- `neo-content-engine` -> fora do Railway, local-first
-
-## Estado de transicao
-
-Este repositorio ainda contem espelhos de codigo que serao aposentados. Portanto:
-
-- nem todo diretorio aqui deve continuar existindo a longo prazo
-- nem todo comando aqui representa a casa final do modulo
-- a raiz deve ser lida como workspace de migracao arquitetural
-
-## Documentos na raiz
-
-- [SETUP.md](./SETUP.md)
-  Setup tecnico atual do workspace raiz
-- [MODULAR_ARCHITECTURE.md](./MODULAR_ARCHITECTURE.md)
-  Mapa de dominios, repositorios e estrategia de extracao
-- [RAILWAY_WORKSPACE.md](./RAILWAY_WORKSPACE.md)
-  Mapa entre servicos Railway e repositorios modulares
-- [NEXTSTEPS.md](./NEXTSTEPS.md)
-  backlog tecnico do backend TikTok Shop
-
-## Regra de ouro
-
-Quando houver duvida entre "onde esta agora" e "onde deve viver", use a segunda pergunta.
-
-Arquitetura modular nao e sobre mover pasta. E sobre impedir que um dominio continue pagando aluguel cognitivo dentro do outro.
+- `neo-content-api` (ou nome de servico equivalente no painel) -> `neo-content-accounts`
+- `neo-content-worker` -> `neo-content-accounts`
 
 ## Variaveis operacionais
 
-As variaveis minimas do workspace vivem em [`.env.example`](/Users/nettomello/CODIGOS/neoflowoff-tiktok/.env.example).
-O dashboard continua lendo `VITE_API_BASE_URL` a partir da raiz via `envDir` do Vite.
+A raiz `neoflowoff-tiktok` nao e fonte primaria de `.env` de producao.
 
-- `DATABASE_URL`: conexao principal com PostgreSQL.
-- `DB_CONNECT_TIMEOUT_MS`: timeout de bootstrap da API para falha rapida quando o banco nao responde.
-- `API_BASE_URL`: URL publica usada no callback OAuth.
-- `TIKTOK_SHOP_APP_KEY` e `TIKTOK_SHOP_APP_SECRET`: credenciais da integracao TikTok Shop.
-- `TIKTOK_WEBHOOK_SECRET`, `TIKTOK_WEBHOOK_SIGNATURE_HEADER` e `TIKTOK_WEBHOOK_TIMESTAMP_HEADER`: validacao de assinatura dos webhooks.
-- `VITE_API_BASE_URL`: endpoint base usado pelo dashboard para `/health` e demais rotas da API.
+Variaveis devem viver por modulo:
+
+- `../neo-content-accounts/.env`
+- `../neo-content-dashboard/.env`
+- `../neo-content-landing/.env`
+- `../neo-content-engine/.env`
+
+## Documentos de apoio
+
+- [SETUP.md](./SETUP.md)
+- [MODULAR_ARCHITECTURE.md](./MODULAR_ARCHITECTURE.md)
+- [RAILWAY_WORKSPACE.md](./RAILWAY_WORKSPACE.md)
+- [NEXTSTEPS.md](./NEXTSTEPS.md)
+
+## Regra de ouro
+
+Se a mudanca for de produto, codigo, deploy, integracao ou dado, edite no repositorio soberano.
+Use este repositorio para coordenacao do ecossistema.
