@@ -5,7 +5,7 @@
     "README.md",
     "MODULAR_ARCHITECTURE.md",
     "RAILWAY_WORKSPACE.md",
-    "local filesystem under a developer workspace root"
+    "local filesystem under $WORKSPACE_ROOT"
   ],
   "repos": [
     {
